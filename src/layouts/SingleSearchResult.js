@@ -57,14 +57,15 @@ class SingleSearchResult extends Component {
     // console.log(repoDetails)
     return (
       <div>
-        {loading ? 
-          <img
-            src={Loader}
-            className="img-responsive"
-            style={{ height: '100px', margin: '20% 45%' }}
-            alt="loading gif"
-          />
-           : null
+        {
+          loading ? 
+            <img
+              src={Loader}
+              className="img-responsive"
+              style={{ height: '100px', margin: '20% 45%' }}
+              alt="loading gif"
+            />
+            : null
         }
         {
           repos && repos.length ? 
