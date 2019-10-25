@@ -3,6 +3,7 @@ import UserProfile from "../components/UserProfile";
 import axios from "axios";
 import { Row, Col, Jumbotron } from "reactstrap";
 import { config } from "../utils";
+import Loader from "../assets/img/loader.gif";
 
 class SingleSearchResult extends Component {
   constructor() {
@@ -57,7 +58,12 @@ class SingleSearchResult extends Component {
     return (
       <div>
         {loading ? 
-          <p style={{ margin: '20% auto', textAlign: 'center' }}>"Loading...."</p>
+          <img
+            src={Loader}
+            className="img-responsive"
+            style={{ height: '100px', margin: '20% 45%' }}
+            alt="loading gif"
+          />
            : null
         }
         {
