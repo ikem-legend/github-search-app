@@ -22,15 +22,15 @@ class Search extends Component {
   callApi = searchTerm => {
     axios.get(
       `${config.baseUrl}/search/users?q=${searchTerm}`,
-      {
-        headers: {
-          "User-Agent": `${config.GHUserAgent}`,
-          "Authorization": `token ${config.GHKey}`
-        }
-      }
+      // {
+      //   headers: {
+      //     "User-Agent": `${config.GHUserAgent}`,
+      //     "Authorization": `token ${config.GHKey}`
+      //   }
+      // }
     )
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         this.setState((prevState) => ({
           ...prevState,
           filteredResults: response.data
@@ -42,7 +42,7 @@ class Search extends Component {
   }
 
   debouncedApiCall = debounce((value) => {
-    console.log(value)
+    // console.log(value)
     this.callApi(value)
   }, 500)
   
@@ -89,7 +89,7 @@ class Search extends Component {
               <div className="search-container">
                 <Input type="text" name="user-search" placeholder="Search Github usernames" onChange={this.handleSearchChange} />                
                 { searchResults ? searchResults : null}
-              {/*"No results found"*/}
+                {/*"No results found"*/}
               </div>
             </Col>
           </Row>

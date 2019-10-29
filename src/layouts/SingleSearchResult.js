@@ -33,7 +33,7 @@ class SingleSearchResult extends Component {
       {
         headers: {
           // "User-Agent": `${config.GHUserAgent}`,
-          "Authorization": `token ${config.GHKey}`
+          // "Authorization": `token ${config.GHKey}`
         }
       }
     )
@@ -74,6 +74,7 @@ class SingleSearchResult extends Component {
                 <Jumbotron>
                   <h2>{username} repos</h2>
                   <img src={userImg} alt="User" className="details" />
+                  <p>Number of repos: {repos.length}</p>
                 </Jumbotron>
               </Col>
               {repoDetails}
