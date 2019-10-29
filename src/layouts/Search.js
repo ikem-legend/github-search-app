@@ -72,13 +72,14 @@ class Search extends Component {
   }
 
   render() {
-    const { filteredResults } = this.state
+    const { filteredResults, currentSearch } = this.state
     const { items } = this.state.filteredResults
     // console.log(filteredResults.items)
     const searchResults = filteredResults && items ? items.map(item => (
       <SearchItems key={item.id} user={item} />
     )) : null
     // console.log(searchResults)
+    console.log(searchResults, currentSearch)
 
     return (
       <div>
@@ -88,8 +89,8 @@ class Search extends Component {
             <Col md={12}>
               <div className="search-container">
                 <Input type="text" name="user-search" placeholder="Search Github usernames" onChange={this.handleSearchChange} />                
-                { searchResults ? searchResults : null}
-                {/*"No results found"*/}
+                { searchResults && searchResults.length ? searchResults : null }
+                { currentSearch && !filteredResults.total_count ? <div>Sorry, no results found</div> : null }
               </div>
             </Col>
           </Row>
